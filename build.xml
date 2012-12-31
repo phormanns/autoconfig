@@ -1,0 +1,14 @@
+<project name="autoconfig" basedir="." default="war">
+	<target name="war" depends="compile">
+		<mkdir dir="dist"/>
+		<war destfile="dist/mail.war">
+			<classes dir="build" />
+			<classes dir="src" includes="**.properties"/>
+			<webinf file="conf/web.xml" />
+		</war>
+	</target>
+	<target name="compile">
+		<mkdir dir="build"/>
+		<javac srcdir="src" destdir="build" classpath="/usr/share/java/servlet-api-2.5.jar" debug="on" />
+	</target>
+</project>
